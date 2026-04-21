@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!-- guardado desde url=(0088)file:///C:/Users/nahuu/OneDrive/Desktop/website/Photography%20&%20Video%20Portfolio.html -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portafolio de fotografía y vídeo</title>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="#home">Mi historia visual</a>
+    <nav>
+      <a href="#about">Acerca de</a>
+      <a href="#photo">Fotografía</a>
+      <a href="#video">Vídeo</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section id="home" class="hero fade-section visible">
+  <div class="container hero-content" style="opacity: 1; transform: translateY(0px);">
+    <p class="eyebrow">Fotografía + Vídeo</p>
+    <h1>Mostrando mi trabajo y quién soy</h1>
+    <p>Captura el momento con imágenes que cuenten historias, revelen emociones y mantengan vivos los recuerdos.</p>
+    <a class="button" href="#photo">Ver portafolio</a>
+  </div>
+</section>
+<section id="about" class="section about fade-section visible">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">Sobre mí</p>
+      <h2>Hola, soy Nahiyan ul Ameen</h2>
+    </div>
+    <p>Me encanta capturar personas, lugares y momentos con una mirada creativa. Uso MI FOTOGRAFÍA y vídeo para mostrar quién soy y lo que valoro, cómo experimento el mundo con mis fotos.</p>
+    <div class="about-grid">
+      <div>
+        <h3>Fotografía</h3>
+        <p>Retratos, paisajes, momentos de la vida cotidiana, viajes y narración creativa.</p>
+      </div>
+      <div>
+        <h3>Vídeo</h3>
+        <p>Cortometrajes, videoclips, cobertura de eventos e historias en movimiento que conmueven e inspiran.</p>
+      </div>
+      <div>
+        <h3>Quién soy</h3>
+        <p>Apasionado, curioso y deseoso de compartir mi visión con personas que buscan un trabajo visual auténtico.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="photo" class="section portfolio fade-section visible">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">Fotografía</p>
+      <h2>Proyectos fotográficos seleccionados</h2>
+    </div>
+    <div class="grid gallery">
+      <div class="card">
+        <img src="./WhatsApp Image 2026-03-23 at 9.16.10 AM.jpeg" alt="Proyecto fotográfico 1">
+        <p>Proyecto fotográfico 1</p>
+      </div>
+      <div class="card">
+        <img src="./WhatsApp Image 2026-03-23 at 9.16.10 AM (3).jpeg" alt="Proyecto fotográfico 2">
+        <p>Proyecto fotográfico 2</p>
+      </div>
+      <div class="card">
+        <img src="./WhatsApp Image 2026-03-23 at 9.16.10 AM (2).jpeg" alt="Proyecto fotográfico 3">
+        <p>Proyecto fotográfico 3</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="video" class="section portfolio video-section fade-section visible">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">Vídeo</p>
+      <h2>Trabajos y relatos en vídeo</h2>
+    </div>
+    <div class="grid gallery"></div>
+  </div>
+</section>
+<section id="contact" class="section contact fade-section visible">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">Contáctanos</p>
+      <h2>Deja que la gente se ponga en contacto contigo</h2>
+    </div>
+    <div class="contact-box">
+      <p><strong>Correo electrónico:</strong> tu.correo@ejemplo.com</p>
+      <p><strong>Instagram:</strong> @tuusuario</p>
+      <p><strong>Mensaje:</strong> Estoy disponible para proyectos, colaboraciones y encargos.</p>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer fade-section visible">
+  <div class="container">
+    <p>© 2026 My Visual Story. Creado para compartir fotografía, vídeo.</p>
+  </div>
+</footer>
+<script>
+  const heroContent = document.querySelector('.hero-content');
+  const fadeSections = document.querySelectorAll('.fade-section');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.15,
+  });
+
+  fadeSections.forEach(section => observer.observe(section));
+
+  const fadeOnScroll = () => {
+    if (!heroContent) return;
+    const maxDistance = 260;
+    const opacity = Math.max(0, 1 - window.scrollY / maxDistance);
+    heroContent.style.opacity = opacity;
+    heroContent.style.transform = `translateY(${Math.min(0, -window.scrollY / 12)}px)`;
+  };
+
+  window.addEventListener('scroll', fadeOnScroll, { passive: true });
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', () => {
+      requestAnimationFrame(() => fadeOnScroll());
+    });
+  });
+  fadeOnScroll();
+</script>
+</body>
+</html>
